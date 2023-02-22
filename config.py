@@ -2,12 +2,13 @@
 config = {
     'name': 'Blockify',
     'version': 'dev-0.0.2',
-    'authors': ['Immanuel Mruk', 'Melina Arnold'],
+    'authors': ['Immanuel Mruk', 'Melina Arnold', 'Lucie'],
     'description': 'Blockify is block breaker game, made with pygame',
     'github': 'https://github.com/Blockify-game/blockify',
     'logoPath': 'resources/images/logo.png',
-    'backgroundPath': 'resources/images/backgrounds/',
+    'statsDataPath': 'data/stats.json',
+    'themesImagesPath': 'resources/images/themes/',
     'platformPath': 'resources/images/ingame/platforms/',
-    'displaySize': (764, 800),
-    'platformSpeed': 0.16,
+    'platformSpeed': 5,
+    'displaySize': [764, 800],
 }
