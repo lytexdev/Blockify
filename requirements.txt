@@ -1,4 +1,2 @@
-asyncio==3.4.3
-sqlite3==3.33.0
-pygame==2.0.0.dev6
+pygame==2.2.0
 termcolor
