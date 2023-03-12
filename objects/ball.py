@@ -4,7 +4,7 @@ import themes.theme_manager as theme_manager
 
 class Ball:
     def __init__(self, platform):
-        self.image = main.blockify.image.load(main.config.get(f'themesImagesPath') +
+        self.image = main.blockify.image.load(main.config.get(f'themes_images_path') +
                                               theme_manager.get_name(theme_manager.current_theme) + '/ball.png')
         self.rect = self.image.get_rect()
         self.rect.x = platform.rect.x + platform.rect.width // 2 - self.rect.width // 2

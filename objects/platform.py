@@ -8,7 +8,7 @@ class Platform:
         self.rect = self.image.get_rect()
         self.rect.x = screen_width // 2 - self.image.get_width() // 2
         self.rect.y = screen_height - 100
-        self.speed = main.config.get('platformSpeed')
+        self.speed = int(main.config.get('platform_speed'))
 
     def update(self, screen_width):
         keys = blockify.key.get_pressed()
