@@ -82,7 +82,6 @@ class Main:
             self.screen.blit(self.ball.image, self.ball.rect)
             Blocks().draw_blocks(self.screen)
 
-
         elif gamestate_manager.current_gamestate == gamestate.GameState.END_STATE:
             lose_screen = blockify.image.load('resources/images/screens/ending.png').convert()
             self.screen.blit(lose_screen, (0, 0))
