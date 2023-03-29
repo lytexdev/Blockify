@@ -1,2 +1,2 @@
-pygame==2.2.0
-termcolor
+pygame==2.3.0
+termcolor==2.2.0

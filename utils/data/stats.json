@@ -1,3 +1,6 @@
 {
-  "level": 1
+  "level": 2,
+  "played_games": 0,
+  "won_games": 0,
+  "lost_games": 0
 }

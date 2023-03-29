@@ -1,5 +1,7 @@
 import main
 import themes.theme_manager as theme_manager
+from objects import blocks
+from objects.blocks import Blocks
 
 
 class Ball:
@@ -10,7 +12,6 @@ class Ball:
         self.rect.x = platform.rect.x + platform.rect.width // 2 - self.rect.width // 2
         self.rect.y = platform.rect.y - self.rect.height
         self.speed = [5, -5]
-
 
     def update(self, screen_width, screen_height, platform):
         self.rect.x += self.speed[0]
@@ -27,3 +28,11 @@ class Ball:
 
         if self.rect.y + self.rect.height >= screen_height - 40:
             return True
+
+        for active_block in Blocks().active_blocks:
+            if self.rect.colliderect(active_block[1]):
+                self.speed[1] = -self.speed[1]
+                print(active_block)
+                #Blocks().active_blocks.remove(active_block)
+                break
+

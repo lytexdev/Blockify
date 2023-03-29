@@ -21,21 +21,16 @@ class Main:
         self.set_states()
 
         self.screen = blockify.display.set_mode(config.get('display_size'))
-
         self.background = blockify.image.load(config.get('themes_images_path') + theme_manager.get_name(
             theme_manager.current_theme) + '/background.png').convert()
-
         self.platform = platform.Platform(self.screen.get_width(), self.screen.get_height(),
                                           config.get('themes_images_path') + theme_manager.get_name(
                                               theme_manager.current_theme) + '/platform.png')
-
         self.blocks = blocks.Blocks()
         self.ball = ball.Ball(self.platform)
         self.running = True
         self.game_over = False
-
         self.start()
-
 
     def start(self):
         self.console_output()
@@ -45,18 +40,18 @@ class Main:
                 if event.type == blockify.QUIT:
                     self.running = False
                     self.game_over = True
+                if event.type == blockify.MOUSEBUTTONUP:
+                    button_clicked.HandleButtonClick()
 
             self.set_display()
             self.fill_screen()
             self.check_game_status()
-            self.register_events()
 
             blockify.display.update()
             blockify.time.Clock().tick(config.get('fps_limit'))
 
         blockify.quit()
         sys.exit()
-
 
     def set_states(self):
         try:
@@ -66,7 +61,6 @@ class Main:
             print(colored('Error: Theme couldn\t set. Exists your provided theme?', 'red'))
 
         gamestate_manager.current_gamestate = gamestate.GameState.INGAME_STATE
-
 
     def fill_screen(self):
         """fill screen with background via gamestate"""
@@ -89,7 +83,6 @@ class Main:
         else:
             print(colored('Very weird Error haha\nGamestate not found', 'red'))
 
-
     def set_display(self):
         """set display name and icon"""
         try:
@@ -98,23 +91,15 @@ class Main:
         except:
             print(colored('Error: Couldn\'t set display name or icon', 'red'))
 
-
     def check_game_status(self):
         """check if ball is out of screen and set game over"""
         if self.ball.update(self.screen.get_width(), self.screen.get_height(), self.platform):
             self.set_game_over()
 
-
     def set_game_over(self):
         """set game over and fill screen"""
         game_over.GameOver()
         self.fill_screen()
-
-
-    def register_events(self):
-        """register event listener"""
-        button_clicked.HandleButtonClick()
-
 
     def console_output(self):
         print(" ")

@@ -11,7 +11,7 @@ class Blocks:
 
         self.SCREEN_WIDTH = main.config.get('display_size')[0]
         self.SCREEN_HEIGHT = main.config.get('display_size')[1]
-        self.blocks = []
+        self.active_blocks = []
 
         self.calculate_rect()
 
@@ -21,7 +21,7 @@ class Blocks:
         self.block_gap = 10
 
         block_image_paths = [
-            f'resources/images/themes/{theme_manager.get_name(theme_manager.current_theme) }/blocks/block{i}.png'
+            f'resources/images/themes/{theme_manager.get_name(theme_manager.current_theme)}/blocks/block{i}.png'
             for i in range(1, self.num_blocks + 1)
         ]
 
@@ -29,12 +29,16 @@ class Blocks:
             for block_num in range(self.num_blocks):
                 image_path = block_image_paths[row_num]
                 image = blockify.image.load(image_path)
+
                 rect = image.get_rect()
                 rect.x = self.block_gap + (rect.width + self.block_gap) * block_num
                 rect.y = self.block_gap + (rect.height + self.block_gap) * row_num
 
-                self.blocks.append((image, rect))
+                self.active_blocks.append([image, rect])
 
     def draw_blocks(self, surface):
-        for image, rect in self.blocks:
+        for image, rect in self.active_blocks:
             surface.blit(image, rect)
+
+    def get_blocks(self):
+        return self.active_blocks
