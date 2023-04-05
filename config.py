@@ -10,6 +10,6 @@ config = {
     'themes_images_path': 'resources/images/themes/',
     'sounds_path': 'resources/sounds/',
     'theme_music_extension': '.mp3',
-    'platform_speed': 5,
+    'platform_speed': 8,
     'fps_limit': 75,
 }
