@@ -8,6 +8,7 @@ class Blocks:
         self.num_rows = None
         self.num_blocks = None
         self.block_gap = None
+        self.health = 3
 
         self.SCREEN_WIDTH = main.config.get('display_size')[0]
         self.SCREEN_HEIGHT = main.config.get('display_size')[1]
@@ -42,3 +43,11 @@ class Blocks:
 
     def get_blocks(self):
         return self.active_blocks
+    
+    def get_health(self):
+        return self.health
+    
+    def set_health(self):
+        if self.health > 0:
+            self.health -= 1
+        
