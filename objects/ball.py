@@ -11,7 +11,7 @@ class Ball:
         self.rect = self.image.get_rect()
         self.rect.x = platform.rect.x + platform.rect.width // 2 - self.rect.width // 2
         self.rect.y = platform.rect.y - self.rect.height
-        self.speed = [5, -5]
+        self.speed = [6, -6]
 
     def update(self, screen_width, screen_height, platform):
         self.rect.x += self.speed[0]
