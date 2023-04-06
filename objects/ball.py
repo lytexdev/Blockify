@@ -2,7 +2,7 @@ import main
 import themes.theme_manager as theme_manager
 from objects import blocks
 from objects.blocks import Blocks
-
+import random
 
 class Ball:
     def __init__(self, platform):
@@ -31,7 +31,11 @@ class Ball:
 
         for active_block in Blocks().active_blocks:
             if self.rect.colliderect(active_block[1]):
-                self.speed[1] = -self.speed[1]
+                rand = random.randint(-6, -5)
+                self.speed[1] = -rand
+                
+                #print(Blocks().get_health(active_block))
+                #Blocks().set_health(active_block)
                 print(active_block)
                 #Blocks().active_blocks.remove(active_block)
                 break
